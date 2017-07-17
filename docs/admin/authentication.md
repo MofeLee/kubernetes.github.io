@@ -17,7 +17,6 @@ All Kubernetes clusters have two categories of users: service accounts managed
 by Kubernetes, and normal users.
 
 Normal users are assumed to be managed by an outside, independent service. An
-admin distributing private keys, a user store like Keystone or Google Accounts,
 even a file with a list of usernames and passwords. In this regard, _Kubernetes
 does not have objects which represent normal user accounts._ Regular users
 cannot be added to a cluster through an API call.
@@ -277,7 +276,7 @@ solution for authentication.  It does offer a few challenges:
 
 1.  Kubernetes has no "web interface" to trigger the authentication process.  There is no browser or interface to collect credentials which is why you need to authenticate to your identity provider first.
 2.  The `id_token` can't be revoked, its like a certificate so it should be short-lived (only a few minutes) so it can be very annoying to have to get a new token every few minutes
-3.  There's no easy way to authenticate to the Kubernetes dashboard without using the `kubectl -proxy` command or a reverse proxy that injects the `id_token`
+3.  There's no easy way to authenticate to the Kubernetes dashboard without using the `kubectl proxy` command or a reverse proxy that injects the `id_token`
 
 
 #### Configuring the API Server
